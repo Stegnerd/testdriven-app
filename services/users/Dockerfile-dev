@@ -2,6 +2,7 @@
 FROM python:3.6.5-alpine
 
 # set workning directory
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # add and install requirements
@@ -12,5 +13,5 @@ RUN pip install -r requirements.txt
 COPY . /usr/src/app
 
 # run server
-CMD python manage.py -h 0.0.0.0
+CMD python manage.py run --host 0.0.0.0
 
