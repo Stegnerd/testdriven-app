@@ -13,7 +13,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 before_script:
-  - cdocker-compose -f docker-compose-dev.yml up --build
+  - docker-compose -f docker-compose-dev.yml up --build
 
 script:
   - docker-compose -f docker-compose-dev.yml run users python manage.py test
