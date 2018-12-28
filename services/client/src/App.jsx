@@ -30,6 +30,12 @@ class App extends Component {
     this.logoutUser = this.logoutUser.bind(this);
   }
 
+  componentWillMount() {
+    if (window.localStorage.getItem('authToken')) {
+      this.setState({ isAuthenticated: true });
+    }
+  }
+
   componentDidMount() {
     this.getUsers();
   }
@@ -64,6 +70,7 @@ class App extends Component {
         console.log(err);
       });
   }
+
   handleChange(event) {
     const obj = {};
     obj[event.target.name] = event.target.value;
